@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,8 +7,17 @@ import Grid from "@material-ui/core/Grid";
 import './TodoApp.css';
 
 function TodoApp() {
-  // Layout taken from material.ui docs example
+  // initial todos for building purpose
+  const testTodos = [
+    { id: 1, task: "Prepare lunches", completed: false },
+    { id: 2, task: "Clean eavestrough...ugh", completed: true },
+    { id: 1, task: "Walk gerbil", completed: false }
+  ];
+
+  const [todos, setTodos] = useState(testTodos);
+
   return (
+    // Layout taken from material.ui docs example
     <Paper
       style={{
         padding: 0,
@@ -23,7 +32,6 @@ function TodoApp() {
           <Typography color='inheirt'>TODOS (WITH HOOKS)</Typography>
         </Toolbar>
       </AppBar>
-
     </Paper>
   );
 }

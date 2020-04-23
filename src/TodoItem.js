@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
+import ListItemText from "@material-ui/core/ListItemText";
 
-function TodoItem(props) {
+function TodoItem({ task, completed }) {
   return (
-    <>
-      <ListItem>
-        <ListItemText>{props.task}</ListItemText>
-      </ListItem>
-      <Divider />
-    </>
+    <ListItem>
+      <ListItemText>{task}</ListItemText>
+    </ListItem>
   );
 }
 

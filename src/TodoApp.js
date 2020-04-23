@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
+import TodoList from "./TodoList";
 import './TodoApp.css';
 
 function TodoApp() {
@@ -29,9 +30,10 @@ function TodoApp() {
     >
       <AppBar color='primary' position='static' style={{ height: "64px" }}>
         <Toolbar>
-          <Typography color='inheirt'>TODOS (WITH HOOKS)</Typography>
+          <Typography color='inherit'>TODOS (WITH HOOKS)</Typography>
         </Toolbar>
       </AppBar>
+      <TodoList todos={todos} />
     </Paper>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
@@ -11,12 +12,15 @@ import './TodoApp.css';
 function TodoApp() {
   // initial todos for building purpose
   const testTodos = [
-    { id: 1, task: "Prepare lunches", completed: false },
-    { id: 2, task: "Clean eavestrough...ugh", completed: true },
-    { id: 3, task: "Walk gerbil", completed: false }
+    { id: uuidv4(), task: "Prepare lunches", completed: false },
+    { id: uuidv4(), task: "Clean eavestrough...ugh", completed: true },
+    { id: uuidv4(), task: "Walk gerbil", completed: false }
   ];
 
   const [todos, setTodos] = useState(testTodos);
+  const addTodo = newTodoText => {
+    setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }]);
+  }
 
   return (
     // Layout taken from material.ui docs example
@@ -34,7 +38,7 @@ function TodoApp() {
           <Typography color='inherit'>TODOS (WITH HOOKS)</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm />
+      <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} />
     </Paper>
   );

@@ -12,7 +12,7 @@ function TodoApp() {
   const testTodos = [
     { id: 1, task: "Prepare lunches", completed: false },
     { id: 2, task: "Clean eavestrough...ugh", completed: true },
-    { id: 1, task: "Walk gerbil", completed: false }
+    { id: 3, task: "Walk gerbil", completed: false }
   ];
 
   const [todos, setTodos] = useState(testTodos);

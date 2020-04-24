@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useTodoState from "./hooks/useTodoState";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -10,15 +10,8 @@ import TodoList from "./TodoList";
 import './TodoApp.css';
 
 function TodoApp() {
-  // initial todos if localStorage existence
-  const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
-
   // core TodoApp state management
-  const {todos, addTodo, updateTodo, removeTodo, toggleTodo} = useTodoState(initialTodos);
-
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  const {todos, addTodo, updateTodo, removeTodo, toggleTodo} = useTodoState([]);
 
   return (
     // Layout taken from material.ui docs example

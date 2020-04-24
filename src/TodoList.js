@@ -13,6 +13,7 @@ function TodoList(props) {
             <TodoItem
               key={todo.id}
               todo={todo}
+              toggleTodo={props.toggleTodo}
               removeTodo={props.removeTodo}
             />
             <Divider />

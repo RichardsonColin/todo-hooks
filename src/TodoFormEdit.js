@@ -5,8 +5,8 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import TextField from "@material-ui/core/TextField";
 import SaveIcon from "@material-ui/icons/Save";
 
-function TodoFormEdit({todo, updateTodo, toggleEdit}) {
-  const [value, handleChange, clear] = useInputState(todo.task);
+function TodoFormEdit({id, task, updateTodo, toggleEdit}) {
+  const [value, handleChange, clear] = useInputState(task);
 
   const handleEdit = (evt, id) => {
     evt.preventDefault();
@@ -17,7 +17,7 @@ function TodoFormEdit({todo, updateTodo, toggleEdit}) {
   return (
     <>
       <form
-        onSubmit={(evt) => handleEdit(evt, todo.id)}
+        onSubmit={(evt) => handleEdit(evt, id)}
         style={{ marginLeft: "1rem", width: "100%" }}
       >
         <TextField
@@ -30,7 +30,7 @@ function TodoFormEdit({todo, updateTodo, toggleEdit}) {
         />
       </form>
       <ListItemSecondaryAction>
-        <IconButton aria-label="Update" onClick={(evt) => handleEdit(evt, todo.id)}>
+        <IconButton aria-label="Update" onClick={(evt) => handleEdit(evt, id)}>
           <SaveIcon />
         </IconButton>
       </ListItemSecondaryAction>

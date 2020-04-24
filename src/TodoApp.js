@@ -11,10 +11,10 @@ import './TodoApp.css';
 
 function TodoApp() {
   // initial todos if localStorage existence
-  const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
   // core TodoApp state management
-  const {todos, addTodo, updateTodo, removeTodo, toggleTodo} = useTodoState(storedTodos);
+  const {todos, addTodo, updateTodo, removeTodo, toggleTodo} = useTodoState(initialTodos);
 
   useEffect(() => {
     window.localStorage.setItem("todos", JSON.stringify(todos));

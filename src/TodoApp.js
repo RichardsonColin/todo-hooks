@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import TodoForm from "./TodoForm";
+import TodoFormNew from "./TodoFormNew";
 import TodoList from "./TodoList";
 import './TodoApp.css';
 
@@ -60,7 +60,7 @@ function TodoApp() {
       </AppBar>
       <Grid container justify='center' style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
-          <TodoForm addTodo={addTodo} />
+          <TodoFormNew addTodo={addTodo} />
           <TodoList
             todos={todos}
             updateTodo={updateTodo}

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-
 import useInputState from "./hooks/useInputState";
 
-function TodoForm({ addTodo }) {
+function TodoFormNew({ addTodo }) {
   const [value, handleChange, clear] = useInputState("");
   const submitForm = evt => {
     evt.preventDefault();
@@ -26,4 +25,4 @@ function TodoForm({ addTodo }) {
   );
 }
 
-export default TodoForm;
+export default TodoFormNew;

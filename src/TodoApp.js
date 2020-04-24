@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -10,15 +10,20 @@ import TodoList from "./TodoList";
 import './TodoApp.css';
 
 function TodoApp() {
-  // initial todos for building purpose
-  const testTodos = [
-    { id: uuidv4(), task: "Prepare lunches", completed: false },
-    { id: uuidv4(), task: "Clean eavestrough...ugh", completed: true },
-    { id: uuidv4(), task: "Walk gerbil", completed: false }
-  ];
+  // initial todos taken from localStorage
+  const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  // const storedTodos = [
+  //   { id: uuidv4(), task: "Prepare lunches", completed: false },
+  //   { id: uuidv4(), task: "Clean eavestrough...ugh", completed: true },
+  //   { id: uuidv4(), task: "Walk gerbil", completed: false }
+  // ];
+  const [todos, setTodos] = useState(storedTodos);
 
-  const [todos, setTodos] = useState(testTodos);
+  useEffect(() => {
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
+  // component methods
   const addTodo = newTodoText => {
     setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }]);
   }

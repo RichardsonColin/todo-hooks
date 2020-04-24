@@ -18,8 +18,14 @@ function TodoApp() {
   ];
 
   const [todos, setTodos] = useState(testTodos);
+
   const addTodo = newTodoText => {
     setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }]);
+  }
+
+  const removeTodo = todoId => {
+    const updatedTodos = todos.filter(todo => todo.id !== todoId);
+    setTodos(updatedTodos);
   }
 
   return (
@@ -41,7 +47,7 @@ function TodoApp() {
       <Grid container justify='center' style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
           <TodoForm addTodo={addTodo} />
-          <TodoList todos={todos} />
+          <TodoList todos={todos} removeTodo={removeTodo} />
         </Grid>
       </Grid>
     </Paper>

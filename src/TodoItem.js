@@ -14,7 +14,7 @@ function TodoItem({ todo, updateTodo, removeTodo, toggleTodo }) {
   const [isEditing, toggle] = useToggleState(false);
 
   return (
-    <ListItem>
+    <ListItem style={{ height: "64px" }}>
       {
         isEditing ?
           <TodoFormEdit

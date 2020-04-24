@@ -16,13 +16,17 @@ function TodoFormEdit({todo, updateTodo, toggleEdit}) {
   }
   return (
     <>
-      <form onSubmit={(evt) => handleEdit(evt, todo.id)} style={{ width: "100%" }}>
+      <form
+        onSubmit={(evt) => handleEdit(evt, todo.id)}
+        style={{ marginLeft: "1rem", width: "100%" }}
+      >
         <TextField
           value={value}
           onChange={handleChange}
           margin='normal'
           label='Edit Todo'
           fullWidth
+          autoFocus
         />
       </form>
       <ListItemSecondaryAction>

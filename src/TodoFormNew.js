@@ -10,8 +10,10 @@ function TodoFormNew() {
 
   const submitForm = evt => {
     evt.preventDefault();
-    dispatch({ type: "ADD", task: value });
-    clear();
+    if(value.length) {
+      dispatch({ type: "ADD", task: value });
+      clear();
+    }
   }
 
   return (

@@ -1,7 +1,8 @@
 import React, { createContext, useReducer } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-export const TodosContext = createContext([]);
+export const TodosContext = createContext();
+export const DispatchContext = createContext();
 
 const todosReducer = (state, action) => {
   switch (action.type) {
@@ -26,8 +27,10 @@ export function TodosProvider(props) {
   const [todos, dispatch] = useReducer(todosReducer , []);
 
   return (
-    <TodosContext.Provider value={{ todos, dispatch }}>
-      {props.children}
+    <TodosContext.Provider value={todos}>
+      <DispatchContext.Provider value={dispatch}>
+        {props.children}
+      </DispatchContext.Provider>
     </TodosContext.Provider>
   )
 }

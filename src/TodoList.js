@@ -12,14 +12,14 @@ function TodoList() {
     <Paper>
       <List>
         {todos.map((todo, ind) => (
-          <>
+          <React.Fragment key={ind}>
             <TodoItem
               {...todo}
               key={todo.id}
 
             />
             {ind < todos.length - 1 && <Divider />}
-          </>
+          </React.Fragment>
         ))}
       </List>
     </Paper>

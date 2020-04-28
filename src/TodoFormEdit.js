@@ -17,7 +17,7 @@ function TodoFormEdit({id, task, toggleEdit}) {
     toggleEdit();
   }
   return (
-    <>
+    <React.Fragment>
       <form
         onSubmit={(evt) => handleEdit(evt, id)}
         style={{ marginLeft: "1rem", width: "100%" }}
@@ -36,7 +36,7 @@ function TodoFormEdit({id, task, toggleEdit}) {
           <SaveIcon />
         </IconButton>
       </ListItemSecondaryAction>
-    </>
+    </React.Fragment>
   );
 }
 

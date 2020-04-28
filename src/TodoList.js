@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodosContext } from "./contexts/todos.context";
 import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import TodoItem from "./TodoItem";
 
-function TodoList({ todos, updateTodo, toggleTodo, removeTodo }) {
+function TodoList() {
+  const { todos } = useContext(TodosContext);
   if(todos.length)
   return (
     <Paper>
@@ -14,9 +16,7 @@ function TodoList({ todos, updateTodo, toggleTodo, removeTodo }) {
             <TodoItem
               {...todo}
               key={todo.id}
-              updateTodo={updateTodo}
-              toggleTodo={toggleTodo}
-              removeTodo={removeTodo}
+
             />
             {ind < todos.length - 1 && <Divider />}
           </>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import { DispatchContext } from "./contexts/todos.context";
 import TodoFormEdit from "./TodoFormEdit";
 import useToggleState from "./hooks/useToggleState";
@@ -9,7 +9,6 @@ import IconButton from "@material-ui/core/IconButton";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-
 
 function TodoItem({ id, task, completed }) {
   const dispatch = useContext(DispatchContext);
@@ -52,4 +51,4 @@ function TodoItem({ id, task, completed }) {
   );
 }
 
-export default TodoItem;
+export default memo(TodoItem);
